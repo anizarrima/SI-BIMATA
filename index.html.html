@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SI-BIMATA - Sistem Bimbingan Informasi Obat Mata Audio</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+
+function playAudio(id, cardId){
+
+let audios = document.querySelectorAll("audio")
+let cards = document.querySelectorAll(".card")
+
+// stop semua audio
+audios.forEach(audio=>{
+audio.pause()
+audio.currentTime = 0
+})
+
+// reset warna card
+cards.forEach(card=>{
+card.classList.remove("bg-blue-100","border-blue-400","shadow-lg")
+})
+
+// play audio
+document.getElementById(id).play()
+
+// beri warna lebih bold pada card aktif
+document.getElementById(cardId).classList.add("bg-blue-100","border-blue-400","shadow-lg")
+
+}
+
+</script>
+
+</head>
+
+<body class="min-h-screen bg-blue-50 flex flex-col items-center justify-center p-6 font-sans">
+
+<!-- HEADER -->
+<div class="text-center mb-10 max-w-3xl">
+
+<div class="flex justify-center items-center gap-8 mb-6 flex-wrap">
+
+<img src="LOGO SI-BIMATA.png"
+alt="Logo SI-BIMATA"
+class="w-44 md:w-52 object-contain"
+/>
+
+<img src="LOGO RSMM.png"
+alt="Logo RSMM Jawa Timur"
+class="w-44 md:w-52 object-contain"
+/>
+
+</div>
+
+<h1 class="text-2xl md:text-4xl font-bold text-blue-800 leading-snug">
+SI-BIMATA : Sistem Bimbingan Informasi Obat Mata Audio
+</h1>
+
+<p class="text-gray-700 mt-4 text-base md:text-lg">
+Silakan pilih jenis panduan penggunaan sesuai dengan obat yang Anda terima.
+</p>
+
+<p class="text-blue-700 font-semibold mt-2 text-base">
+Pilih salah satu tombol di bawah ini.
+</p>
+
+</div>
+
+
+<!-- MENU -->
+<div class="grid gap-8 w-full max-w-5xl md:grid-cols-3">
+
+
+<!-- TETES MATA -->
+<div id="cardTetes" class="card bg-white rounded-2xl shadow-xl border border-blue-100 p-7 text-center hover:scale-105 transition">
+
+<img
+src="TETES MATA.jpeg"
+alt="Obat Tetes Mata"
+class="w-40 mx-auto mb-4 object-contain"
+/>
+
+<h2 class="text-xl font-semibold text-blue-800 mb-3">
+Obat Tetes Mata
+</h2>
+
+<p class="text-base text-gray-700 mb-4 leading-relaxed">
+Panduan cara penggunaan obat tetes mata yang benar.
+</p>
+
+<button onclick="playAudio('audioTetes','cardTetes')"
+class="w-full text-lg py-4 rounded-2xl bg-blue-600 text-white hover:bg-blue-700 transition mb-3">
+▶ Dengarkan Panduan
+</button>
+
+<audio id="audioTetes" controls class="w-full">
+<source src="tetes mata.mpeg" type="audio/mpeg">
+</audio>
+
+</div>
+
+
+
+<!-- SALEP MATA -->
+<div id="cardSalep" class="card bg-white rounded-2xl shadow-xl border border-blue-100 p-7 text-center hover:scale-105 transition">
+
+<img
+src="SALEP MATA.jpeg"
+alt="Obat Salep Mata"
+class="w-40 mx-auto mb-4 object-contain"
+/>
+
+<h2 class="text-xl font-semibold text-blue-800 mb-3">
+Obat Salep Mata
+</h2>
+
+<p class="text-base text-gray-700 mb-4 leading-relaxed">
+Panduan cara penggunaan obat salep mata yang benar.
+</p>
+
+<button onclick="playAudio('audioSalep','cardSalep')"
+class="w-full text-lg py-4 rounded-2xl bg-green-600 text-white hover:bg-green-700 transition mb-3">
+▶ Dengarkan Panduan
+</button>
+
+<audio id="audioSalep" controls class="w-full">
+<source src="salep mata.mpeg" type="audio/mpeg">
+</audio>
+
+</div>
+
+
+
+<!-- KOMBINASI -->
+<div id="cardKombinasi" class="card bg-white rounded-2xl shadow-xl border border-blue-100 p-7 text-center hover:scale-105 transition">
+
+<img
+src="TETES DAN SALEP MATA.jpeg"
+alt="Tetes dan Salep Mata"
+class="w-40 mx-auto mb-4 object-contain"
+/>
+
+<h2 class="text-xl font-semibold text-blue-800 mb-3">
+Tetes Mata & Salep Mata
+</h2>
+
+<p class="text-base text-gray-700 mb-4 leading-relaxed">
+Panduan penggunaan obat tetes mata dan salep mata secara bersamaan.
+</p>
+
+<button onclick="playAudio('audioKombinasi','cardKombinasi')"
+class="w-full text-lg py-4 rounded-2xl bg-purple-600 text-white hover:bg-purple-700 transition mb-3">
+▶ Dengarkan Panduan
+</button>
+
+<audio id="audioKombinasi" controls class="w-full">
+<source src="tetes mata dan salep mata.mp3.mpeg" type="audio/mpeg">
+</audio>
+
+</div>
+
+</div>
+
+
+<!-- FOOTER -->
+<div class="mt-12 text-center text-base text-gray-600 max-w-md">
+
+<p>
+Jika mengalami kesulitan atau memiliki pertanyaan lebih lanjut, silakan hubungi petugas farmasi.
+</p>
+
+</div>
+
+</body>
+</html>
